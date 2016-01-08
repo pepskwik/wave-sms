@@ -63,7 +63,7 @@ function Router($stateProvider, $urlRouterProvider) {
     views: {
       sms: {
         templateUrl: 'sms.html',
-        controller: 'SMSCtrl',
+        controller: 'SmsCtrl',
         controllerAs: 'vm'
       }
     }
