@@ -16,7 +16,7 @@ gulp.task('styles', function() {
     .pipe(gulpif(createSourceMap, sourcemaps.init()))
     .pipe(sass({
       sourceComments: !global.isProd,
-      outputStyle: 'compact',
+      outputStyle: global.isProd ? 'compressed' : 'nested',
       includePaths: config.styles.sassIncludePaths
     }))
     .on('error', handleErrors)
