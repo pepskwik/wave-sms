@@ -1,0 +1,35 @@
+<ion-view view-title="Log In" hide-back-button="true">
+  <ion-content class="padding-top">
+    <div class="list text-center padding">
+      <i class="icon ion-ios-unlocked-outline larger positive"></i>
+    </div>
+    <form novalidate name="loginForm" ng-submit="loginForm.$valid && vm.login(vm.user)">
+      <div class="list list-inset">
+        <label class="item item-input" ng-class="{ 'has-error' : loginForm.txtemail.$invalid && loginForm.$submitted, 'no-error' : loginForm.txtemail.$valid }">
+          <input name="txtemail" type="email" placeholder="Email"
+          ng-model="vm.user.email"
+          required>
+        </label>
+        <div class="form-errors" ng-messages="loginForm.txtemail.$error" ng-if="loginForm.$submitted">
+          <div class="form-error" ng-message="required">This field is required.</div>
+          <div class="form-error" ng-message="email">This field is must be an email.</div>
+        </div>
+        <label class="item item-input" ng-class="{ 'has-error' : loginForm.txtPassword.$invalid && loginForm.$submitted, 'no-error' : loginForm.txtPassword.$valid }">
+          <input name="txtPassword" type="password" placeholder="Password"
+          ng-model="vm.user.password"
+          required>
+        </label>
+        <div class="form-errors" ng-messages="loginForm.txtPassword.$error" ng-if="loginForm.$submitted">
+        <div class="form-error" ng-message="required">This field is required.</div>
+        </div>
+      </div>
+      <div class="padding">
+        <input type="submit" class="button button-block button-positive" value="Log In">
+        <p class="text-center padding-top">
+          <a ui-sref="register" class="button button-clear button-positive">Register</a>
+          <a ui-sref="forgot" class="button button-clear button-positive">Forgot password?</a>
+        </p>
+      </div>
+  </form>
+  </ion-content>
+</ion-view>

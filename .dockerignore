@@ -1,0 +1,17 @@
+# frontend tmp files
+build
+coverage
+hooks
+node_modules
+platforms
+resources
+scripts
+test
+*.tmp
+*.map
+
+# crap files
+*.log
+
+# mac files
+.DS_Store

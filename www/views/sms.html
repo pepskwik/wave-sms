@@ -1,0 +1,67 @@
+<ion-view view-title="Send SMS">
+  <ion-content class="padding-top">
+    <div class="text-center padding-top">
+      <i class="icon ion-ios-chatbubble-outline larger positive"></i>
+    </div>
+    <form name="smsForm" novalidate ng-submit="smsForm.$valid && vm.send(vm.sms)"
+    ng-class="{ 'has-error' : smsForm.txtfrom.$invalid && smsForm.$submitted }">
+    <div class="list list-inset">
+
+      <div class="item item-divider">
+        From (mobile number or name)
+      </div>
+      <label class="item item-input" ng-class="{ 'has-error' : smsForm.txtfrom.$invalid  && smsForm.$submitted, 'no-error' : smsForm.txtfrom.$valid }">
+        <input name="txtfrom" type="text" placeholder="Wavecell"
+        ng-model="vm.sms.from"
+        ng-maxlength="20"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="smsForm.txtfrom.$error" ng-if="smsForm.$submitted">
+        <div class="form-error" ng-message="required">This field is required.</div>
+        <div class="form-error" ng-message="maxlength">This field is must not exceed 20 characters.</div>
+      </div>
+
+      <div class="item item-divider">
+        To (include a country code)
+      </div>
+      <label class="item item-input" ng-class="{ 'has-error' : smsForm.txtto.$invalid  && smsForm.$submitted, 'no-error' : smsForm.txtto.$valid }">
+        <input name="txtto" type="tel" placeholder="+63 917 305 0141"
+        ng-model="vm.sms.to"
+        phone-number
+        required>
+      </label>
+      <div class="form-errors" ng-messages="smsForm.txtto.$error" ng-if="smsForm.$submitted">
+        <div class="form-error" ng-message="required">This field is required.</div>
+        <div class="form-error" ng-message="phoneNumber">This field must be a valid phone number.</div>
+      </div>
+
+      <div class="item item-divider">
+        Your Message
+      </div>
+      <label class="item item-input" ng-class="{ 'has-error' : smsForm.txtmessage.$invalid  && smsForm.$submitted, 'no-error' : smsForm.txtmessage.$valid }">
+        <textarea name="txtmessage" placeholder="Message" rows="4"
+        ng-model="vm.sms.message"
+        ng-maxlength="500"
+        required></textarea>
+      </label>
+      <div class="form-errors" ng-messages="smsForm.txtmessage.$error" ng-if="smsForm.$submitted">
+        <div class="form-error" ng-message="required">This field is required.</div>
+        <div class="form-error" ng-message="maxlength">This field is must not exceed 500 characters.</div>
+      </div>
+
+      <div class="item item-divider">
+        Delivery Schedule
+      </div>
+      <div class="item"
+        ng-model="vm.sms.schedule"
+        ion-datetime-picker
+        am-pm
+        title="Test">{{ vm.sms.schedule | date: "yyyy-MM-dd hh:mm a" }}</div>
+
+    </div>
+    <div class="padding">
+      <input type="submit" value="Send" class="button button-block button-positive"/>
+    </div>
+  </form>
+  </ion-content>
+</ion-view>

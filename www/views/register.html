@@ -1,0 +1,34 @@
+<ion-view view-title="Register">
+  <ion-content class="padding-top">
+    <div class="text-center padding-top">
+      <i class="icon ion-ios-personadd-outline larger positive"></i>
+    </div>
+    <form name="registerForm" novalidate ng-submit="registerForm.$valid && vm.register(vm.user)"
+    ng-class="{ 'has-error' : registerForm.txtemail.$invalid && registerForm.$submitted }">
+    <div class="list list-inset">
+      <label class="item item-input" ng-class="{ 'has-error' : registerForm.txtemail.$invalid  && registerForm.$submitted, 'no-error' : registerForm.txtemail.$valid }">
+        <input name="txtemail" type="email" placeholder="Email"
+        ng-model="vm.user.email"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.txtemail.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">This field is required.</div>
+        <div class="form-error" ng-message="email">This field is must be an email.</div>
+      </div>
+      <label class="item item-input" ng-class="{ 'has-error' : registerForm.txtpassword.$invalid  && registerForm.$submitted, 'no-error' : registerForm.txtpassword.$valid }">
+        <input name="txtpassword" type="password" placeholder="Password"
+        ng-model="vm.user.password"
+        ng-minlength="6"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.txtpassword.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">This field is required.</div>
+        <div class="form-error" ng-message="minlength">This field is must be at least 6 characters.</div>
+      </div>
+    </div>
+    <div class="padding">
+      <input type="submit" value="Register" class="button button-block button-positive"/>
+    </div>
+  </form>
+  </ion-content>
+</ion-view>

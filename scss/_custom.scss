@@ -1,0 +1,45 @@
+/* Empty. Add your own CSS if you like */
+
+.larger {
+  font-size: 120px;
+}
+
+
+/** Error Messages **/
+
+/** Styling for the username field **/
+label.item.has-error {
+  border-left: 2px solid red;
+}
+
+/** Styling for the password field when an error exists **/
+label.item.no-error {
+  border-left: 2px solid green;
+}
+
+/** Styling for the error text and container **/
+.form-errors {
+  margin: 5px 0
+}
+.form-error {
+  padding: 2px 0 2px 16px;
+  color: red;
+}
+
+/** Popover overrides **/
+.popover {
+  height: auto !important;
+}
+.popover ion-header-bar {
+  position: relative;
+}
+.popover ion-content {
+  top: 0;
+  position: relative;
+}
+
+/** Textarea ovverides **/
+.platform-ios textarea,
+platform-android textarea {
+  text-indent: 0;
+}
